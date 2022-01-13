@@ -5,14 +5,12 @@ const button = document.getElementById("button");
 const gridContainer = document.body.children[1];
 let openCard = document.querySelectorAll(".grid__card");
 let countClick = 0;
-
 let onClick = function (event) {
   event.preventDefault();
 
   for (let i = 0; i < levelsItem.length; i++) {
     levelsItem[i].classList.remove('level__item_active');
   }
-
   event.currentTarget.classList.add('level__item_active');
   let levelName = document.querySelector(".level__item_active").getAttribute("id");
   switch (levelName) {
@@ -32,7 +30,6 @@ const invisible = function () {
   header.classList.toggle('invisible');
   header.classList.remove('header');
 }
-
 let rotateCards = function (event) {
   event.preventDefault();
   countClick++;
@@ -52,7 +49,6 @@ let createWrapCards = function () {
     newCards.innerHTML = inner;
     newCards.addEventListener("click", rotateCards);
   }
-
   switch (numberCards) {
     case 3:
       gridContainer.classList.toggle('grid-easy');
@@ -64,7 +60,6 @@ let createWrapCards = function () {
       gridContainer.classList.toggle('grid-hard');
       break;
   }
-
   let numRandom = [];
   for (let i = 0; i < numberCards; i++) { 
     const random = (Math.floor(Math.random() * 2) === 0);
@@ -80,7 +75,6 @@ let createWrapCards = function () {
     }
   });
 };
-
 for (let i = 0; i < levelsItem.length; i++) {
   levelsItem[i].addEventListener('click', onClick, false);
 }
